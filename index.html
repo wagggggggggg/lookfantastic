@@ -1,70 +1,290 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
 
-  <!-- Basic Page Needs
+    <!-- Basic Page Needs
   –––––––––––––––––––––––––––––––––––––––––––––––––– -->
-  <meta charset="utf-8">
-  <title>Skeleton: Responsive CSS Boilerplate</title>
-  <meta name="description" content="">
-  <meta name="author" content="">
+    <meta charset="utf-8">
+    <title>Skeleton: Responsive CSS Boilerplate</title>
+    <meta name="description" content="">
+    <meta name="author" content="">
 
-  <!-- Mobile Specific Metas
+    <!-- Mobile Specific Metas
   –––––––––––––––––––––––––––––––––––––––––––––––––– -->
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 
-  <!-- FONT
+    <!-- FONT
   –––––––––––––––––––––––––––––––––––––––––––––––––– -->
-  <link href='//fonts.googleapis.com/css?family=Raleway:400,300,600' rel='stylesheet' type='text/css'>
+    <link href='//fonts.googleapis.com/css?family=Raleway:400,300,600' rel='stylesheet' type='text/css'>
+    <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
 
-  <!-- CSS
+    <!-- CSS
   –––––––––––––––––––––––––––––––––––––––––––––––––– -->
-  <link rel="stylesheet" href="css/normalize.css">
-  <link rel="stylesheet" href="css/skeleton.css">
-  <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/normalize.css">
+    <link rel="stylesheet" href="css/skeleton.css">
+    <link rel="stylesheet" href="css/style.css">
 
-  <!-- Scripts
+    <!-- Scripts
   –––––––––––––––––––––––––––––––––––––––––––––––––– -->
-  <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
-  <script src="http://www.google.com/jsapi" type="text/javascript"></script>
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+    <script src="http://www.google.com/jsapi" type="text/javascript"></script>
 
-  <script type="text/javascript">google.load("jquery", "1.3.2");</script>
-  <script>
-    $(function() {
-    $("[name=toggler]").click(function(){
-            $('.toHide').hide();
-            $("#blk-"+$(this).val()).show('slow');
-    });
- });
- </script>
-
-  <!-- Favicon
-  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
-  <link rel="icon" type="image/png" href="../../dist/images/favicon.png">
-
+    <script type="text/javascript">
+        google.load("jquery", "1.3.2");
+    </script>
+    <script>
+        $(function() {
+            $("[name=toggler]").click(function() {
+                $('.toHide').hide();
+                $("#blk-" + $(this).val()).show('slow');
+            });
+        });
+    </script>
 </head>
+
 <body>
+    <div class="container">
+        <!-- wrap all content in a container -->
 
-  <!-- Primary Page Layout
-  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+        <!-- Banner with logo
+    –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+
+        <section id="banner">
+            <div class="row">
+                <div class="three columns">
+                    <img class="logo" src="images/look-fantastic.png">
+                </div>
+                <div class="nine columns right">
+                    <img class="digi" src="images/digi.png">
+                </div>
+            </div>
+        </section>
+
+        <!-- Checkout intro
+      –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+        <section id="country">
+            <div class="row">
+              <div class="two columns">
+                1)
+              </div>
+                <div class="ten columns">
+                    <h5>Please select your country</h5>
+                    <input type="image" src="images/gbflag.png" height="" width="100" />
+                    <input type="image" src="images/chinaflag.png" name="toggler" class="china" value="3" id="rdb3" height="" width="100" />
+                    <div class="twelve columns">
+
+                        <button onclick="getLocation()">Find my location</button>
+
+                        <p id="demo"></p>
+
+                        <script>
+                            var x = document.getElementById("demo");
+
+                            function getLocation() {
+                                if (navigator.geolocation) {
+                                    navigator.geolocation.getCurrentPosition(showPosition);
+                                } else {
+                                    x.innerHTML = "Geolocation is not supported by this browser.";
+                                }
+                            }
+
+                            function showPosition(position) {
+                                x.innerHTML = "Latitude: " + position.coords.latitude +
+                                    "<br>Longitude: " + position.coords.longitude;
+                            }
+                        </script>
+                    </div>
+                </div>
+            </div>
+            <hr>
+        </section>
+
+        <section id="intro">
+            <div class="row">
+              <div class="two columns">
+                2)
+              </div>
+                <div class="five columns">
+                    <h5>Select your payment method</h5>
+                    <input type="image" src="images/paypallogo.png" id="myBtnPayPal" height="" width="100" />
+                    <input type="image" src="images/credit-card-logos.png" name="toggler" class="credit" value="1" id="rdb1" height="" width="100" />
+
+                    <div id="blk-3" class="toHide" style="display:none">
+                        <h6>Alternate payment detected</h6>
+                        <input type="image" src="images/alipay.png" id="myBtnAliPay" height="" width="100" />
+                    </div>
+                </div>
+                <div class="five columns">
+                    <div id="blk-1" class="toHide" style="display:none">
+                        <form>
+                            <div class="row">
+                                <div class="six columns">
+                                    <label for="cardNumberInput">Card Number</label>
+                                </div>
+                                <div class="six columns">
+                                    <input type="text" class="form" placeholder="card number" id="cardnumberInput">
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="six columns">
+                                    <label for="nameOnCard">Name on card</label>
+                                </div>
+                                <div class="six columns">
+                                    <input type="text" placeholder="Name on card" id="nameOnCard">
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="four columns">
+                                    <label for="expiryDate">Expiry Date</label>
+                                </div>
+                                <div class="four columns">
+                                    <select class="u-full-width" id="expirtyDate" placeholder="Month">
+                              <option value="Option 1">01</option>
+                              <option value="Option 2">02</option>
+                              <option value="Option 3">03</option>
+                              <option value="Option 1">04</option>
+                              <option value="Option 2">05</option>
+                              <option value="Option 3">06</option>
+                              <option value="Option 1">07</option>
+                              <option value="Option 2">08</option>
+                              <option value="Option 3">09</option>
+                              <option value="Option 1">10</option>
+                              <option value="Option 2">11</option>
+                              <option value="Option 3">12</option>
+                            </select>
+                                </div>
+                                <div class="four columns">
+                                    <select class="u-full-width" id="expiryYear" placeholder="Year">
+                                <option value="Option 1">17</option>
+                                <option value="Option 2">18</option>
+                                <option value="Option 3">19</option>
+                                <option value="Option 1">20</option>
+                                <option value="Option 2">21</option>
+                                <option value="Option 3">22</option>
+                                <option value="Option 1">23</option>
+                                <option value="Option 2">24</option>
+                                <option value="Option 3">25</option>
+                                <option value="Option 1">26</option>
+                                <option value="Option 2">27</option>
+                                <option value="Option 3">28</option>
+                            </select>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="six columns">
+                                    <label for="cv2">CV2</label>
+                                </div>
+                                <div class="six columns">
+                                    <input type="text" class="form" placeholder="CV2" id="cv2Input">
+                                </div>
+                            </div>
+                            <div class="row">
+                              <div class="twelve columns">
+                                <button class="button-primary">Confirm Order</button>
+                              </div>
+                            </div>
+                        </form>
+                    </div>
+                    <div id="blk-2" class="toHide" style="display:none">
+                        Please enter AliPay card details
+                    </div>
+                </div>
+            </div>
+        </section>
 
 
 
-<label><input id="rdb1" type="radio" name="toggler" value="1" />PayPal</label>
-<label><input id="rdb2" type="radio" name="toggler" value="2" />Credit</label>
+        <!-- The Modal -->
+        <div id="myModalPayPal" class="modal">
 
-<div id="blk-1" class="toHide" style="display:none">
-    Please enter paypal details
-</div>
-<div id="blk-2" class="toHide" style="display:none">
-    Please enter Credit card details
-</div>
+            <!-- Modal content -->
+            <div class="modal-content">
+                <div class="container">
+                    <img class="payments" src="images/paypallogo.png" height="" width="100">
+                    <p>Selecting Paypal will re-direct you to the Paypal website.</p>
+                    <p>Please note that using the PayPal checkout will attract a 1% surcharge to the cost of your order.</p>
+                    <span class="closePayPal">&times;</span>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- The Modal -->
+        <div id="myModalAliPay" class="modal">
+
+            <!-- Modal content -->
+            <div class="modal-content">
+                <div class="container">
+                    <img class="payments" src="images/AliPay.png" height="" width="100">
+                    <p>Selecting Alipay will re-direct you to the Alipay portal.</p>
+                    <p>Please note Alipay is only for China citizens.</p>
+                    <span class="closeAliPay">&times;</span>
+                </div>
+            </div>
+
+        </div>
+    </div>
+    <!-- close container -->
+
+    <!-- End Document
+–––––––––––––––––––––––––––––––––––––––––––––––––– -->
+
+    <script>
+        // Get the modal GOLDEN TICKET PROJECT
+        var modalPayPal = document.getElementById('myModalPayPal');
+
+        // Get the button that opens the modal
+        var btnPayPal = document.getElementById("myBtnPayPal");
+
+        // Get the <span> element that closes the modal
+        var spanPayPal = document.getElementsByClassName("closePayPal")[0];
 
 
+        // When the user clicks on the button, open the modal
+        btnPayPal.onclick = function() {
+            modalPayPal.style.display = "block";
+        }
+
+        // When the user clicks on <span> (x), close the modal
+        spanPayPal.onclick = function() {
+            modalPayPal.style.display = "none";
+        }
+
+        // When the user clicks anywhere outside of the modal, close it
+        window.onclick = function(event) {
+            if (event.target == modal) {
+                modalPayPal.style.display = "none";
+            }
+        }
+
+        // Get the modal GOLDEN TICKET PROJECT
+        var modalAliPay = document.getElementById('myModalAliPay');
+
+        // Get the button that opens the modal
+        var btnAliPay = document.getElementById("myBtnAliPay");
+
+        // Get the <span> element that closes the modal
+        var spanAliPay = document.getElementsByClassName("closeAliPay")[0];
 
 
+        // When the user clicks on the button, open the modal
+        btnAliPay.onclick = function() {
+            modalAliPay.style.display = "block";
+        }
 
-<!-- End Document
-  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+        // When the user clicks on <span> (x), close the modal
+        spanAliPay.onclick = function() {
+            modalAliPay.style.display = "none";
+        }
+
+        // When the user clicks anywhere outside of the modal, close it
+        window.onclick = function(event) {
+            if (event.target == modal) {
+                modalAliPay.style.display = "none";
+            }
+        }
+    </script>
 </body>
+
 </html>
