@@ -6,7 +6,7 @@
     <!-- Basic Page Needs
   –––––––––––––––––––––––––––––––––––––––––––––––––– -->
     <meta charset="utf-8">
-    <title>Skeleton: Responsive CSS Boilerplate</title>
+    <title>lookamazing</title>
     <meta name="description" content="">
     <meta name="author" content="">
 
@@ -30,6 +30,10 @@
     <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
     <script src="http://www.google.com/jsapi" type="text/javascript"></script>
 
+    <!-- Scripts code for show/hide content
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+
+
     <script type="text/javascript">
         google.load("jquery", "1.3.2");
     </script>
@@ -41,6 +45,9 @@
             });
         });
     </script>
+
+    <!-- End Script
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
 </head>
 
 <body>
@@ -50,30 +57,36 @@
         <!-- Banner with logo
     –––––––––––––––––––––––––––––––––––––––––––––––––– -->
 
-        <section id="banner">
+        <section id="banner" role="banner">
             <div class="row">
                 <div class="three columns">
                     <img class="logo" src="images/look-fantastic.png">
                 </div>
                 <div class="nine columns right">
                     <img class="digi" src="images/digi.png">
+                    <!-- This logo will be set to display none on mobile-->
                 </div>
             </div>
         </section>
 
-        <!-- Checkout intro
+        <!-- Checkout intro country selection
       –––––––––––––––––––––––––––––––––––––––––––––––––– -->
-        <section id="country">
+        <section id="country" role="country">
             <div class="row">
-              <div class="two columns">
-                1)
-              </div>
+                <div class="two columns">
+                    1)
+                </div>
                 <div class="ten columns">
                     <h5>Please select your country</h5>
                     <input type="image" src="images/gbflag.png" height="" width="100" />
+                    <!-- Selecting China flag will trigger the 3rd method for the Javascript show/hide -->
                     <input type="image" src="images/chinaflag.png" name="toggler" class="china" value="3" id="rdb3" height="" width="100" />
                     <div class="twelve columns">
 
+                        <!-- Find my location for country detection
+                      –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+                        <!-- Gather location code supplied by w3schools. https://www.w3schools.com/html/html5_geolocation.asp
+                    –––––––––––––––––––––––––––––––––––––––––––––––––– -->
                         <button onclick="getLocation()">Find my location</button>
 
                         <p id="demo"></p>
@@ -94,31 +107,42 @@
                                     "<br>Longitude: " + position.coords.longitude;
                             }
                         </script>
+                        <!-- End code for script
+                        –––––––––––––––––––––––––––––––––––––––––––––––––– -->
                     </div>
                 </div>
             </div>
             <hr>
         </section>
 
-        <section id="intro">
+        <!-- Select payment method
+        –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+
+        <section id="payment" role="payment">
             <div class="row">
-              <div class="two columns">
-                2)
-              </div>
+                <div class="two columns">
+                    2)
+                </div>
                 <div class="five columns">
                     <h5>Select your payment method</h5>
-                    <input type="image" src="images/paypallogo.png" id="myBtnPayPal" height="" width="100" />
-                    <input type="image" src="images/credit-card-logos.png" name="toggler" class="credit" value="1" id="rdb1" height="" width="100" />
-
+                    <!--Selecting paypal will trigger modal popup -->
+                    <input type="image" class="imagesmobile" src="images/paypallogo.png" id="myBtnPayPal" height="" width="100" />
+                    <!-- Selecting credit card logo will trigger method 1 for Javascript show/hide-->
+                    <input type="image" class="imagesmobile" src="images/credit-card-logos.png" name="toggler" class="credit" value="1" id="rdb1" height="" width="100" />
+                    <!-- Selecting Alipay will trigger modal popup -->
                     <div id="blk-3" class="toHide" style="display:none">
-                        <h6>Alternate payment detected</h6>
-                        <input type="image" src="images/alipay.png" id="myBtnAliPay" height="" width="100" />
+                        <h5>Alternate payment detected</h5>
+                        <input type="image" class="imagesmobile" src="images/alipay.png" id="myBtnAliPay" height="" width="100" />
                     </div>
                 </div>
+                <!-- Form for credit card will be displayed
+                –––––––––––––––––––––––––––––––––––––––––––––––––– -->
                 <div class="five columns">
                     <div id="blk-1" class="toHide" style="display:none">
                         <form>
                             <div class="row">
+                              <!-- Card number label and form
+                              –––––––––––––––––––––––––––––––––––––––––––––––––– -->
                                 <div class="six columns">
                                     <label for="cardNumberInput">Card Number</label>
                                 </div>
@@ -127,6 +151,8 @@
                                 </div>
                             </div>
                             <div class="row">
+                              <!-- Name on card label and form
+                              –––––––––––––––––––––––––––––––––––––––––––––––––– -->
                                 <div class="six columns">
                                     <label for="nameOnCard">Name on card</label>
                                 </div>
@@ -135,43 +161,47 @@
                                 </div>
                             </div>
                             <div class="row">
+                              <!-- Expiry date label and form
+                              –––––––––––––––––––––––––––––––––––––––––––––––––– -->
                                 <div class="four columns">
                                     <label for="expiryDate">Expiry Date</label>
                                 </div>
                                 <div class="four columns">
                                     <select class="u-full-width" id="expirtyDate" placeholder="Month">
-                              <option value="Option 1">01</option>
-                              <option value="Option 2">02</option>
-                              <option value="Option 3">03</option>
-                              <option value="Option 1">04</option>
-                              <option value="Option 2">05</option>
-                              <option value="Option 3">06</option>
-                              <option value="Option 1">07</option>
-                              <option value="Option 2">08</option>
-                              <option value="Option 3">09</option>
-                              <option value="Option 1">10</option>
-                              <option value="Option 2">11</option>
-                              <option value="Option 3">12</option>
-                            </select>
+                                      <option value="Option 1">01</option>
+                                      <option value="Option 2">02</option>
+                                      <option value="Option 3">03</option>
+                                      <option value="Option 1">04</option>
+                                      <option value="Option 2">05</option>
+                                      <option value="Option 3">06</option>
+                                      <option value="Option 1">07</option>
+                                      <option value="Option 2">08</option>
+                                      <option value="Option 3">09</option>
+                                      <option value="Option 1">10</option>
+                                      <option value="Option 2">11</option>
+                                      <option value="Option 3">12</option>
+                                    </select>
                                 </div>
                                 <div class="four columns">
                                     <select class="u-full-width" id="expiryYear" placeholder="Year">
-                                <option value="Option 1">17</option>
-                                <option value="Option 2">18</option>
-                                <option value="Option 3">19</option>
-                                <option value="Option 1">20</option>
-                                <option value="Option 2">21</option>
-                                <option value="Option 3">22</option>
-                                <option value="Option 1">23</option>
-                                <option value="Option 2">24</option>
-                                <option value="Option 3">25</option>
-                                <option value="Option 1">26</option>
-                                <option value="Option 2">27</option>
-                                <option value="Option 3">28</option>
-                            </select>
+                                      <option value="Option 1">17</option>
+                                      <option value="Option 2">18</option>
+                                      <option value="Option 3">19</option>
+                                      <option value="Option 1">20</option>
+                                      <option value="Option 2">21</option>
+                                      <option value="Option 3">22</option>
+                                      <option value="Option 1">23</option>
+                                      <option value="Option 2">24</option>
+                                      <option value="Option 3">25</option>
+                                      <option value="Option 1">26</option>
+                                      <option value="Option 2">27</option>
+                                      <option value="Option 3">28</option>
+                                    </select>
                                 </div>
                             </div>
                             <div class="row">
+                              <!-- CV2 label and form
+                              –––––––––––––––––––––––––––––––––––––––––––––––––– -->
                                 <div class="six columns">
                                     <label for="cv2">CV2</label>
                                 </div>
@@ -180,14 +210,11 @@
                                 </div>
                             </div>
                             <div class="row">
-                              <div class="twelve columns">
-                                <button class="button-primary">Confirm Order</button>
-                              </div>
+                                <div class="twelve columns">
+                                    <button class="button-primary">Confirm Order</button>
+                                </div>
                             </div>
                         </form>
-                    </div>
-                    <div id="blk-2" class="toHide" style="display:none">
-                        Please enter AliPay card details
                     </div>
                 </div>
             </div>
@@ -195,13 +222,14 @@
 
 
 
-        <!-- The Modal -->
-        <div id="myModalPayPal" class="modal">
+        <!-- Modal for Paypal
+        –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+        <div id="myModalPayPal" class="modal" role="paypal">
 
             <!-- Modal content -->
             <div class="modal-content">
                 <div class="container">
-                    <img class="payments" src="images/paypallogo.png" height="" width="100">
+                    <img src="images/paypallogo.png" height="" width="100">
                     <p>Selecting Paypal will re-direct you to the Paypal website.</p>
                     <p>Please note that using the PayPal checkout will attract a 1% surcharge to the cost of your order.</p>
                     <span class="closePayPal">&times;</span>
@@ -210,13 +238,14 @@
 
         </div>
 
-        <!-- The Modal -->
-        <div id="myModalAliPay" class="modal">
+        <!-- Modal for Alipay
+        –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+        <div id="myModalAliPay" class="modal" role="alipay">
 
             <!-- Modal content -->
             <div class="modal-content">
                 <div class="container">
-                    <img class="payments" src="images/AliPay.png" height="" width="100">
+                    <img src="images/AliPay.png" height="" width="100">
                     <p>Selecting Alipay will re-direct you to the Alipay portal.</p>
                     <p>Please note Alipay is only for China citizens.</p>
                     <span class="closeAliPay">&times;</span>
@@ -227,11 +256,11 @@
     </div>
     <!-- close container -->
 
-    <!-- End Document
+    <!-- Script for modals
 –––––––––––––––––––––––––––––––––––––––––––––––––– -->
 
     <script>
-        // Get the modal GOLDEN TICKET PROJECT
+        // Get the modal Paypal
         var modalPayPal = document.getElementById('myModalPayPal');
 
         // Get the button that opens the modal
@@ -258,7 +287,7 @@
             }
         }
 
-        // Get the modal GOLDEN TICKET PROJECT
+        // Get the modal Alipay
         var modalAliPay = document.getElementById('myModalAliPay');
 
         // Get the button that opens the modal

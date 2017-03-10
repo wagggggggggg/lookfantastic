@@ -1,6 +1,12 @@
+/* Body generic styles
+–––––––––––––––––––––––––––––––––––––––––––––––––– */
+
 body {
   font-family: 'Lato', serif;
 }
+
+/* Logo
+–––––––––––––––––––––––––––––––––––––––––––––––––– */
 
 .logo {
   width: 100%;
@@ -12,6 +18,9 @@ body {
   margin-top: 10px;
 }
 
+/* Display digi logo to the right and display none on mobile
+–––––––––––––––––––––––––––––––––––––––––––––––––– */
+
 .right {
   text-align: right;
 }
@@ -19,11 +28,6 @@ body {
 .digi {
   height: 100px;
   width: 100px;
-}
-
-
-.payments {
-  padding: 10px;
 }
 
 
@@ -51,7 +55,7 @@ body {
     width: 80%; /* Could be more or less, depending on screen size */
 }
 
-/* Modals Golden Ticket
+/* Modals Paypal
 ––––––––––––––––––––––––––––––––––––––––––––––– */
 
 .closePayPal {
@@ -75,6 +79,9 @@ body {
     font-weight: bold;
 }
 
+/* Modal Alipay
+–––––––––––––––––––––––––––––––––––––––––––––––––– */
+
 .closeAliPay:hover,
 .closeAliPay:focus {
     color: black;
@@ -82,9 +89,21 @@ body {
     cursor: pointer;
 }
 
+/* Media Query
+–––––––––––––––––––––––––––––––––––––––––––––––––– */
 
+@media screen and (max-width: 480px) {
+  /* Payment logos will increase size to make it easier to click on mobile
+  –––––––––––––––––––––––––––––––––––––––––––––––––– */
+    .imagesmobile {
+        height: 150%;
+        width: 105%;
+    }
+}
 
 @media screen and (max-width: 780px) {
+  /* Digi logo to not appear on mobile
+  –––––––––––––––––––––––––––––––––––––––––––––––––– */
     .digi {
       display: none;
     }
